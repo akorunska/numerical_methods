@@ -37,17 +37,4 @@ else:
 
 	result = method(f, df, a, b, precision)
 	print("result =", result)
-
-
-# a = 0
-# b = 1
-# precision = 10 ** (-7)
-
-# result = simplified_newtons_method(
-# 	equasion_5_as_fucntion, 
-# 	function_5_derivative, 
-# 	a, 
-# 	b, 
-# 	precision)
-
-# print("result of solving equasion is: ", result)
+	

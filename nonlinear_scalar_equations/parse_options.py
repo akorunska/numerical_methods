@@ -4,7 +4,8 @@ method_names = ['secant', 'simplified_newtons', 'sim', 'lobachevsky']
 equasions_avaliable = [5, 34]
 
 def help():
-	print('main.py -e <equasion_number> -m <method name> -a <num> -b <num>' )
+	print('main.py -m <method name> -e <equasion_number> -a <num> -b <num>' )
+	print('main.py --method=<method name> --equasion=<equasion_number> --a=<num> --b=<num>')
 	print('avaiable equasion numbers are:', equasions_avaliable, "(not for lobachesky method)")
 	print('avaliable methods are:', method_names)
 	sys.exit(2)
