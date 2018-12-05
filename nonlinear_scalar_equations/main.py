@@ -1,5 +1,15 @@
 from equasions import *
+from secant_method import secant_method
 
-value = function_5_derivative(1)
+a = 0
+b = 1
+precision = 10 ** (-7)
 
-print(value)
+result = secant_method(
+	equasion_5_as_fucntion, 
+	function_5_derivative, 
+	a, 
+	b, 
+	precision)
+
+print("result of solving equasion is: ", result)
