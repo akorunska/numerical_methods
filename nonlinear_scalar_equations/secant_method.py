@@ -22,7 +22,7 @@ def secant_method(f, deriv_f, a, b, presision):
 
 	while math.fabs(cur - prev) > presision:
 		new = cur - f(cur) * (prev - cur) / (f(prev) - f(cur))
-		print("calculated new value:", new)
+		print("xk =:", new)
 		prev = cur
 		cur = new
 

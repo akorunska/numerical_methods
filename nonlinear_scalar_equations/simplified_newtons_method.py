@@ -19,6 +19,6 @@ def simplified_newtons_method (f, deriv_f, a, b, presision):
 	while math.fabs(new - cur) > presision:
 		cur = new
 		new = cur - f(cur) / x0_deriv
-		print("calculated new value:", new)
+		print("[x=", new)
 
 	return new
