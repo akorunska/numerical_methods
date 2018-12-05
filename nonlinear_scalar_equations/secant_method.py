@@ -18,7 +18,7 @@ def secant_method(f, deriv_f, a, b, presision):
 	prev = x0
 	cur = x1
 
-	print ("values at start are: x0=", x0, " and x1=", x1)
+	print ("values at start are: x0 =", x0, "  and x1 =", x1)
 
 	while math.fabs(cur - prev) > presision:
 		new = cur - f(cur) * (prev - cur) / (f(prev) - f(cur))

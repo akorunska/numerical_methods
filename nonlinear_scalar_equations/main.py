@@ -1,11 +1,12 @@
 from equasions import *
 from secant_method import secant_method
+from simplified_newtons_method import simplified_newtons_method
 
 a = 0
 b = 1
 precision = 10 ** (-7)
 
-result = secant_method(
+result = simplified_newtons_method(
 	equasion_5_as_fucntion, 
 	function_5_derivative, 
 	a, 
