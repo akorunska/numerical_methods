@@ -16,17 +16,11 @@ def get_method_function(options):
 	if options['method_name'] == 'fpi':
 		return fixed_point_iteration_method
 
-def handle_restarting(result, method, f, df, a, b, precisions):
-	if result == "":
-		print("trying to run method for -f(x)")
-		result = method(f, df, a, b, precision)
-	return result
-
 def get_equasion_functions(options):
 	if options['equasion_num'] == 5:
 		return (equasion_5_as_fucntion, function_5_derivative, minus_function_5_derivative)
 	if options['equasion_num'] == 34:
-		return (equasion_34_as_fucntion, function_34_derivative, minus_function_5_derivative)
+		return (equasion_34_as_function, function_34_derivative, minus_function_5_derivative)
 
 options = parse_and_validate_options(sys.argv[1:])
 print(options)
@@ -45,6 +39,5 @@ else:
 		"in [ ", a, ", ", b, " ]\n\n")
 
 	result = method(f, df, a, b, precision)
-	result = handle_restarting(result, method, lambda x: -f(x), dminus_f, a, b, precision)
 	print("result =", result)
 	
