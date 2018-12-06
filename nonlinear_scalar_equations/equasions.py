@@ -11,9 +11,16 @@ def equasion_5_as_fucntion(x):
 def function_5_derivative(x, n=1):
 	return derivative(equasion_5_as_fucntion, x, dx=1e-6, n=n)
 
+def minus_function_5_derivative(x, n=1):
+	return derivative(lambda x: -equasion_5_as_fucntion(x), x, dx=1e-6, n=n)
+
 def equasion_34_as_function(x):
 	value = (x ** 2) * math.sin(x) * math.cos(x) + math.pi - x
 	return value
 
 def function_34_derivative(x, n=1):
 	return derivative(equasion_34_as_function, x, dx=1e-6, n=n)
+
+def minus_function_34_derivative(x, n=1):
+	return derivative(lambda x: -equasion_34_as_fucntion(x), x, dx=1e-6, n=n)
+
