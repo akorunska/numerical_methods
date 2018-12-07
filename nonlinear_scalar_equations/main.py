@@ -22,6 +22,7 @@ def get_equasion_functions(options):
 	if options['equasion_num'] == 34:
 		return (equasion_34_as_function, function_34_derivative, minus_function_5_derivative)
 
+
 options = parse_and_validate_options(sys.argv[1:])
 print(options)
 
