@@ -45,4 +45,4 @@ def fixed_point_iteration_method(f, deriv_f, a, b, eps):
 		prev = cur
 		print("received xk =", cur)
 		cur = prev - lambd * f(prev)
-	return- cur
+	return cur

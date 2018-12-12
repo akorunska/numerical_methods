@@ -1,7 +1,7 @@
 import sys, getopt
 
 method_names = ['secant', 'simplified_newtons', 'fpi', 'lobachevsky']
-equasions_avaliable = [5, 34]
+equasions_avaliable = [5, 34, 0]
 
 def help():
 	print('main.py -m <method name> -e <equasion_number> -a <num> -b <num>')
@@ -13,7 +13,7 @@ def help():
 
 def check_options(options):
 	if options['method_name'] == 'lobachevsky':
-		if options['equasion_num'] != -1 :
+		if options['equasion_num'] != "" :
 			print("this equasion is not avaliable for lobachesky method")
 			help()
 		else:
@@ -56,7 +56,10 @@ def parse_and_validate_options(argv):
 		if opt == '-h':
 			help()
 		elif opt in ("-e", "--equasion"):
-			options['equasion_num'] = int(arg)
+			if (arg == "alg"):
+				options['equasion_num'] = 0
+			else:
+				options['equasion_num'] = int(arg)
 		elif opt in ("-a", "--a"):
 			options['a'] = float(arg)
 		elif opt in ("-b", "--b"):

@@ -1,5 +1,5 @@
 clear
-output_precision(8)
+output_precision(9)
 
 function y = f(x)
   y = x.^2 * cos(x) * sin(x) + pi - x

@@ -18,3 +18,15 @@ def equasion_34_as_function(x):
 def function_34_derivative(x, n=1):
 	return derivative(equasion_34_as_function, x, dx=1e-6, n=n)
 
+def algebraic_equasion(x):
+	coefficients = [-76, 173, 628, -960, -762, 856, 251, -42]
+	n = 6
+	i = 0
+	value = 0
+	while i <= n:
+		value += x ** i * coefficients[i]
+		i += 1
+	return value
+
+def algebraic_equasion_derivative(x, n=1):
+	return derivative(algebraic_equasion, x, dx=1e-6, n=n)
