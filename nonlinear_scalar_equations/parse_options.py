@@ -1,6 +1,6 @@
 import sys, getopt
 
-method_names = ['secant', 'simplified_newtons', 'fpi', 'lobachevsky']
+method_names = ['secant', 'simplified_newtons', 'simple_iteration', 'lobachevsky']
 equasions_avaliable = [5, 34, 0]
 
 def help():

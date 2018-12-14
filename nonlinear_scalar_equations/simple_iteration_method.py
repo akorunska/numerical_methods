@@ -18,7 +18,7 @@ def handle_q(q):
 		print("how about putting another bounds?")
 		sys.exit(2)
 
-def fixed_point_iteration_method(f, deriv_f, a, b, eps):
+def simple_iteration_method(f, deriv_f, a, b, eps):
 	alpha = get_func_mininum_in_bounds(deriv_f, a, b)
 	gamma = get_func_maximum_in_bounds(deriv_f, a, b)
 	print("alpha =", alpha, "  gamma =", gamma)

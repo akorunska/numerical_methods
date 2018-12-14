@@ -3,7 +3,7 @@ from parse_options import *
 from equasions import *
 from secant_method import secant_method
 from simplified_newtons_method import simplified_newtons_method
-from fixed_point_iteration_method import fixed_point_iteration_method
+from simple_iteration_method import simple_iteration_method
 from lobachevsky_method import lobachevsky_method
 
 # method_names = ['secant', 'simplified_newtons', 'fpi', 'lobachesky']
@@ -14,8 +14,8 @@ def get_method_function(options):
 		return secant_method
 	if options['method_name'] == 'simplified_newtons':
 		return simplified_newtons_method
-	if options['method_name'] == 'fpi':
-		return fixed_point_iteration_method
+	if options['method_name'] == 'simple_iteration':
+		return simple_iteration_method
 
 def get_equasion_functions(options):
 	if options['equasion_num'] == 5:
