@@ -6,12 +6,8 @@ class Matrix:
 		self.values = values
 
 		if len(values) is  0 :
-			for i in range(n):
-				row = []
-				for j in range(n):
-					row.append(0)
-				self.values.append(row)
-
+			self.values = [[0 for y in range(n)] for x in range(n)]
+			
 		self.extended = extended
 		self.r = []
 		if (extended):
