@@ -4,9 +4,14 @@ class Matrix:
 	def __init__(self, n=0, values=[], r=[], extended=False):
 		self.n = n
 		self.values = values
+
 		if len(values) is  0 :
 			for i in range(n):
-				self.values.append([0] * n)
+				row = []
+				for j in range(n):
+					row.append(0)
+				self.values.append(row)
+
 		self.extended = extended
 		self.r = []
 		if (extended):
