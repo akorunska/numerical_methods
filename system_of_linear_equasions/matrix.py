@@ -1,16 +1,23 @@
 import copy
 
 class Matrix:
-	def __init__(self, n=0, values=[], r=[], extended=True):
+	def __init__(self, n=0, values=[], r=[], extended=False):
 		self.n = n
-		self.values = values
+		if len(values) > 0 :
+			self.values = values
+		else:
+			self.values = [[0] * n] * n
 		self.extended = extended
+		self.r = []
 		if (extended):
+			if (len(r) is 0):
+				r = [0,] * n
 			i = 0
 			for num in r:
-				values[i].append(num)
+				self.values[i].append(num)
 				i += 1
-		else:
+
+		if (len(r) is not 0):
 			self.r = r
 
 
@@ -26,11 +33,13 @@ class Matrix:
 				if j < self.n:
 					res += "%5d" % num
 				j += 1
-			if (self.extended):
-				res += " | " + str(self.values[i][self.n]) +'\n'
-			else:
-				res += " | " + str(r[i]) +'\n'
-			i += 1
+			if (len(self.r) > 0 or self.extended):
+				if (self.extended):
+					res += " | " + str(self.values[i][self.n])
+				else:
+					res += " | " + str(self.r[i])
+				i += 1
+			res += '\n'
 		return res
 
 

@@ -17,4 +17,4 @@ def read_matrix(filename):
 		r.append(int(lines[ i + n + 1]))
 		i += 1
 	f.close()
-	return Matrix(n, values, r)
+	return Matrix(n, values, r, extended=True)
