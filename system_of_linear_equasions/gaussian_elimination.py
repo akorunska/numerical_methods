@@ -36,6 +36,7 @@ def forward_pass(matrix, choose_by_column_mode):
 		print("after iteration k =%i matrix looks like: \n" % i,  matrix, "\n")
 	return matrix
 
+
 def backward_pass(matrix):
 	x = [0] * matrix.n
 	i = matrix.n - 1
