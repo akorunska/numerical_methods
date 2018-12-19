@@ -16,6 +16,7 @@ def LU_main_diagonal_of_ones_on_U_demo():
 	# m = Matrix(3, [[1, 3, 5], [2 , 4, 6], [0, 1, 6]], [1, 1, 1], True)
 	print("Initial matrix: ", m)
 	res = LU_main_diagonal_of_ones_on_U(m)
+	print("result is: \n", res)
 
 
 
