@@ -33,6 +33,24 @@ class Matrix:
 					ans.values[i][j] += self.values[i][k] * m2.values[k][j]
 		return ans
 
+	def get_precise_to_str(self):
+		res = "\n"
+		i = 0
+		for line in self.values:
+			j = 0
+			for num in line:
+				if j < self.n:
+					res += "%10.4f" % num
+				j += 1
+			if (len(self.r) > 0 or self.extended):
+				if (self.extended):
+					res += "   | %10.4f" % self.values[i][self.n]
+				else:
+					res += "   | %10.4f" % self.r[i]
+				i += 1
+			res += '\n'
+		return res
+
 	def __str__(self):
 		res = "\n"
 		i = 0
@@ -40,13 +58,13 @@ class Matrix:
 			j = 0
 			for num in line:
 				if j < self.n:
-					res += "%7.0f" % num
+					res += "%5.f" % num
 				j += 1
 			if (len(self.r) > 0 or self.extended):
 				if (self.extended):
-					res += " | %10.2f" % self.values[i][self.n]
+					res += "   | %10.2f" % self.values[i][self.n]
 				else:
-					res += " | %10.2f" % self.r[i]
+					res += "   | %10.2f" % self.r[i]
 				i += 1
 			res += '\n'
 		return res
