@@ -3,10 +3,10 @@ import copy
 class Matrix:
 	def __init__(self, n=0, values=[], r=[], extended=False):
 		self.n = n
-		if len(values) > 0 :
-			self.values = values
-		else:
-			self.values = [[0] * n] * n
+		self.values = values
+		if len(values) is  0 :
+			for i in range(n):
+				self.values.append([0] * n)
 		self.extended = extended
 		self.r = []
 		if (extended):
