@@ -54,6 +54,3 @@ def gaussian_elimination(matrix, choose_by_column_mode=False):
 	triangle_matrix = forward_pass(matrix, choose_by_column_mode)
 	return backward_pass(triangle_matrix)
 
-
-
-
