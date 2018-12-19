@@ -7,7 +7,7 @@ class Matrix:
 
 		if len(values) is  0 :
 			self.values = [[0 for y in range(n)] for x in range(n)]
-			
+
 		self.extended = extended
 		self.r = []
 		if (extended):
@@ -25,6 +25,14 @@ class Matrix:
 	def get_copy(self):
 		return copy.deepcopy(self)
 
+	def mult(self, m2):
+		ans = Matrix(self.n) # ans is rows1 x cols2
+		for i in range(self.n):
+			for j in range(self.n):
+				for k in range(self.n):
+					ans.values[i][j] += self.values[i][k] * m2.values[k][j]
+		return ans
+
 	def __str__(self):
 		res = "\n"
 		i = 0
@@ -32,13 +40,13 @@ class Matrix:
 			j = 0
 			for num in line:
 				if j < self.n:
-					res += "%5d" % num
+					res += "%7.0f" % num
 				j += 1
 			if (len(self.r) > 0 or self.extended):
 				if (self.extended):
-					res += " | " + str(self.values[i][self.n])
+					res += " | %10.2f" % self.values[i][self.n]
 				else:
-					res += " | " + str(self.r[i])
+					res += " | %10.2f" % self.r[i]
 				i += 1
 			res += '\n'
 		return res
