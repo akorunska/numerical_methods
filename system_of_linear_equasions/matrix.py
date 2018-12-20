@@ -1,12 +1,16 @@
 import copy
 
 class Matrix:
-	def __init__(self, n=0, values=[], r=[], extended=False):
+	def __init__(self, n=0, values=[], r=[], extended=False, m=0):
 		self.n = n
+		if m is 0:
+			self.m = n
+		else:
+			self.m = m
 		self.values = values
 
 		if len(values) is  0 :
-			self.values = [[0 for y in range(n)] for x in range(n)]
+			self.values = [[0 for y in range(self.n)] for x in range(self.m)]
 
 		self.extended = extended
 		self.r = []
@@ -25,10 +29,18 @@ class Matrix:
 	def get_copy(self):
 		return copy.deepcopy(self)
 
-	def mult(self, m2):
-		ans = Matrix(self.n) # ans is rows1 x cols2
-		for i in range(self.n):
+	def transpose(self):
+		ans = Matrix(n=self.m, m=self.n)
+
+		for i in range(self.m):
 			for j in range(self.n):
+				ans.values[j][i] = self.values[i][j]
+		return ans
+
+	def mult(self, m2):
+		ans = Matrix(n=m2.n, m=self.m) # ans is rows1 x cols2
+		for i in range(ans.m):
+			for j in range(ans.n):
 				for k in range(self.n):
 					ans.values[i][j] += self.values[i][k] * m2.values[k][j]
 		return ans
