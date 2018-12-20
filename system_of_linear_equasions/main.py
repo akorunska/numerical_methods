@@ -14,10 +14,11 @@ def gaussian_elimination_demo():
 def LU_main_diagonal_of_ones_on_U_demo():
 	m = read_matrix("matrixes/3.txt")
 	print("Initial matrix: ", m)
-	res, inv_matrix = LU_main_diagonal_of_ones_on_U(m)
+	res, inv_matrix, det = LU_main_diagonal_of_ones_on_U(m)
 	print("result is: \n", res)
 	print("\ninverce matrix based on LU factorisation: ", inv_matrix.get_precise_to_str())
 	print("A * A^(-1) = ", m.mult(inv_matrix))
+	print("det(A) = ", det)
 
 
 

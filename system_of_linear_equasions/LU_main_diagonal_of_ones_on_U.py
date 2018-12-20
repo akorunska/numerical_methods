@@ -31,6 +31,7 @@ def getLU(matrix):
 		p += 1
 	return (L, U)
 
+
 def get_result(L, U):
 	n = L.n
 	x = [0 for x in range(n)]
@@ -44,10 +45,12 @@ def get_result(L, U):
 		i -= 1
 	return x
 
+
 def cron(i, j):
 	if i == j:
 		return 1
 	return 0
+
 
 def get_inverce_matrix(L, U):
 	X = Matrix(L.n)
@@ -74,6 +77,14 @@ def get_inverce_matrix(L, U):
 		p -= 1
 	return X
 
+
+def get_determinant(L):
+	det = 1;
+	for i in range(L.n):
+		det *= L.values[i][i]
+	return det
+
+
 def LU_main_diagonal_of_ones_on_U(matrix):
 	(L, U) = getLU(matrix)
 	print("L: ", L)
@@ -84,5 +95,6 @@ def LU_main_diagonal_of_ones_on_U(matrix):
 
 	ans = get_result(L, U)
 	inv_matrix = get_inverce_matrix(L, U)
-	return ans, inv_matrix
+	det = get_determinant(L)
+	return ans, inv_matrix, det
 
