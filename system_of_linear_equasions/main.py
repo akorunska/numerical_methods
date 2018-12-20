@@ -9,15 +9,6 @@ from LQ_decomposition import LQ_decomposition
 
 ## DEMOS FOR SLE 1	
 
-def LQ_decomposition_demo(): # метод відбиття на основі LQ факторизації
-	m = read_matrix("matrixes/1.txt")
-	print("Initial matrix: ", m)
-	res = LQ_decomposition(m)
-	print("result is: \n", res)
-	# print("\ninverce matrix based on LU factorisation: ", inv_matrix.get_precise_to_str())
-	# print("A * A^(-1) = ", m.mult(inv_matrix))
-	# print("det(A) = ", det)
-
 def LU_main_diagonal_of_ones_on_L_demo():
 	m = read_matrix("matrixes/1.txt")
 	print("Initial matrix: ", m)
@@ -26,6 +17,17 @@ def LU_main_diagonal_of_ones_on_L_demo():
 	print("\ninverce matrix based on LU factorisation: ", inv_matrix.get_precise_to_str())
 	print("A * A^(-1) = ", m.mult(inv_matrix))
 	print("det(A) = ", det)
+
+def LQ_decomposition_demo(): # метод відбиття на основі LQ факторизації
+	m = read_matrix("matrixes/1.txt")
+	print("Initial matrix: ", m)
+	res, det = LQ_decomposition(m)
+	print("result is: \n", res)
+	# print("\ninverce matrix based on LU factorisation: ", inv_matrix.get_precise_to_str())
+	# print("A * A^(-1) = ", m.mult(inv_matrix))
+	print("det(A) = +-", det)
+
+##
 
 
 ## DEMOS FOR SLE 2
@@ -39,6 +41,7 @@ def gaussian_elimination_demo():
 	res= gaussian_elimination(m, choose_by_column_mode=True)
 	print("result is: \n", res)
 
+##
 
 ## DEMOS FOR SLE 3
 
@@ -60,12 +63,14 @@ def LU_main_diagonal_of_ones_on_U_demo():
 	print("A * A^(-1) = ", m.mult(inv_matrix))
 	print("det(A) = ", det)
 
+##
+
 
 
 
 # SLE 1
-# LU_main_diagonal_of_ones_on_L_demo()
-LQ_decomposition_demo()
+LU_main_diagonal_of_ones_on_L_demo()
+# LQ_decomposition_demo()
 
 
 # SLE 2

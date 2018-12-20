@@ -59,11 +59,16 @@ def get_answer(m, L, Q_transp):
 	x = x.transpose()
 	return x.values[0]
 
+def get_determinant(L):
+	det = 1;
+	for i in range(L.n):
+		det *= L.values[i][i]
+	return det
 
 def LQ_decomposition(m):
 	L, Q = build_LQ(m)
 	print("L: ", L, "Q: ", Q)
 	print("L * Q^T = ", L.mult(Q.transpose()))
-	return get_answer(m, L, Q)
+	return get_answer(m, L, Q), get_determinant(L)
 
 
