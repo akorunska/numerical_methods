@@ -8,10 +8,10 @@ from LU_main_diagonal_of_ones_on_L import LU_main_diagonal_of_ones_on_L
 def LU_main_diagonal_of_ones_on_L_demo():
 	m = read_matrix("matrixes/0.txt")
 	print("Initial matrix: ", m)
-	LU_main_diagonal_of_ones_on_L(m)
-	# print("result is: \n", res)
-	# print("\ninverce matrix based on LU factorisation: ", inv_matrix.get_precise_to_str())
-	# print("A * A^(-1) = ", m.mult(inv_matrix))
+	res, inv_matrix = LU_main_diagonal_of_ones_on_L(m)
+	print("result is: \n", res)
+	print("\ninverce matrix based on LU factorisation: ", inv_matrix.get_precise_to_str())
+	print("A * A^(-1) = ", m.mult(inv_matrix))
 	# print("det(A) = ", det)
 
 def gaussian_elimination_demo():
@@ -33,10 +33,11 @@ def LU_main_diagonal_of_ones_on_U_demo():
 
 
 # SLE 1
+LU_main_diagonal_of_ones_on_L_demo()
 
 
 # SLE 2
 # gaussian_elimination_demo()
 
 # SLE 3
-LU_main_diagonal_of_ones_on_L_demo()
+# LU_main_diagonal_of_ones_on_U_demo()

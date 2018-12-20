@@ -7,7 +7,6 @@ def getLU(matrix):
 	p = 0
 	while p < matrix.n:
 		j = p
-
 		i = j
 		while i < matrix.n:
 			L.values[i][j] = matrix.values[i][j]
@@ -25,7 +24,7 @@ def getLU(matrix):
 			while k < i:
 				U.values[i][j] -= U.values[k][j] * L.values[i][k]
 				k += 1
-			U.values[i][j] /= L.values[i][i] # вся разница между факторизациями в этой строчке????
+			U.values[i][j] /= L.values[i][i]
 			j += 1
 
 		p += 1
