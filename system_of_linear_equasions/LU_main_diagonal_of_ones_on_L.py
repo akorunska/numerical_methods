@@ -78,11 +78,11 @@ def get_inverce_matrix(L, U):
 	return X
 
 
-# def get_determinant(L):
-# 	det = 1;
-# 	for i in range(L.n):
-# 		det *= L.values[i][i]
-# 	return det
+def get_determinant(U):
+	det = 1;
+	for i in range(U.n):
+		det *= U.values[i][i]
+	return det
 
 
 def LU_main_diagonal_of_ones_on_L(matrix):
@@ -95,5 +95,5 @@ def LU_main_diagonal_of_ones_on_L(matrix):
 
 	ans = get_result(L, U)
 	inv_matrix = get_inverce_matrix(L, U)
-	# det = get_determinant(L)
-	return ans, inv_matrix
+	det = get_determinant(U)
+	return ans, inv_matrix, det
