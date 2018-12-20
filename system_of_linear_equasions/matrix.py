@@ -45,6 +45,25 @@ class Matrix:
 					ans.values[i][j] += self.values[i][k] * m2.values[k][j]
 		return ans
 
+	def mult_by_val(self, val):
+		for i in range(self.n):
+			for j in range(self.m):
+				self.values[i][j] *= val
+
+	def get_unit_matrix(n):
+		m = Matrix(n)
+		for i in range(n):
+			m.values[i][i] = 1
+		return m
+
+	def minus(self, m2):
+		m = Matrix(n=self.n, m=self.m)
+		for i in range(self.n):
+			for j in range(self.m):
+				m.values[i][j] = self.values[i][j] - m2.values[i][j]
+		return m
+
+
 	def get_precise_to_str(self):
 		res = "\n"
 		i = 0
