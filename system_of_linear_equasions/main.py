@@ -36,14 +36,16 @@ def LQ_decomposition_demo(): # метод відбиття на основі LQ 
 def holetsky_method_demo():
 	m = read_matrix("matrixes/2.txt")
 	print("Initial matrix: ", m)
-	res = holetsky_method(m)
+	res, det = holetsky_method(m)
 	print("result is: \n", res)
+	print("det(A) = ", det)
 
 def gaussian_elimination_demo():
 	m = read_matrix("matrixes/2.txt")
 	print("Initial matrix: ", m)
-	res= gaussian_elimination(m, choose_by_column_mode=True)
+	res = gaussian_elimination(m, choose_by_column_mode=True)
 	print("result is: \n", res)
+
 
 ##
 

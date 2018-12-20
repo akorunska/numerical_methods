@@ -33,10 +33,15 @@ def get_answer(m, U):
 		x[i] /= U.values[i][i]
 	return x
 
+def get_determinant(U):
+	det = 1
+	for i in range(U.n):
+		det *= U.values[i][i] ** 2
+	return det
 
 def holetsky_method(m):
 	U, U_transp = get_UtU(m)
 	print("U = ", U)
 	print("U^T = ", U_transp)
 	print("U^T * U = ", U_transp.mult(U))
-	return get_answer(m, U)
+	return get_answer(m, U), get_determinant(U)
