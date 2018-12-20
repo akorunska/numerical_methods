@@ -51,7 +51,7 @@ def cron(i, j):
 	return 0
 
 
-def get_inverce_matrix(L, U):
+def get_inverse_matrix(L, U):
 	X = Matrix(L.n)
 	p = L.n - 1
 	while p >= 0:
@@ -93,7 +93,7 @@ def LU_main_diagonal_of_ones_on_U(matrix):
 	print("L * U = ", init)
 
 	ans = get_result(L, U)
-	inv_matrix = get_inverce_matrix(L, U)
+	inv_matrix = get_inverse_matrix(L, U)
 	det = get_determinant(L)
 	return ans, inv_matrix, det
 

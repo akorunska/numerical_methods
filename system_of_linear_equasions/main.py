@@ -35,8 +35,11 @@ def LU_main_diagonal_of_ones_on_U_demo():
 def tomas_algorithm_demo(): # метод прогонки
 	m = read_matrix("matrixes/3.txt")
 	print("Initial matrix: ", m)
-	res = tomas_algorithm(m)
+	res, inv_matrix, det = tomas_algorithm(m)
 	print("\nresult is: \n", res)
+	print("\ninverce matrix based on LU factorisation: ", inv_matrix.get_precise_to_str())
+	print("A * A^(-1) = ", m.mult(inv_matrix))
+	print("det(A) = ", det)
 
 
 
