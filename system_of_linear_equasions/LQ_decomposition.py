@@ -35,6 +35,7 @@ def build_LQ(m):
 			w_values[k] = [mu[i] * prev.values[i][k]]
 		w = Matrix(n=1, m=m.n, values=w_values)
 		H = build_householder_matrix(w)
+		print("H: ", H.get_precise_to_str())
 
 		A[i + 1] = prev.mult(H)
 		if Q is 0:

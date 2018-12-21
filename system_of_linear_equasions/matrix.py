@@ -14,7 +14,9 @@ class Matrix:
 
 		self.extended = extended
 		self.r = []
+		self.rows = n
 		if (extended):
+			self.rows += 1
 			if (len(r) is 0):
 				r = [0,] * n
 			i = 0
@@ -38,7 +40,7 @@ class Matrix:
 		return ans
 
 	def mult(self, m2):
-		ans = Matrix(n=m2.n, m=self.m) # ans is rows1 x cols2
+		ans = Matrix(n=m2.rows, m=self.m) # ans is rows1 x cols2
 		for i in range(ans.m):
 			for j in range(ans.n):
 				for k in range(self.n):
