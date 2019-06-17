@@ -35,18 +35,18 @@ def Newton(x, x_values, y_values):
         P=P+a
     return P
 
+if __name__=="__main__":
+    print("f(x) = ln(x^3) + cos(x) + x")
+    print(y_values)
 
-print("f(x) = ln(x^3) + cos(x) + x")
-print(y_values)
+    x=Symbol('X')
+    P=Newton(x,x_values,y_values)
+    print('The interpolating polynomial is:', expand(P))
 
-x=Symbol('X')
-P=Newton(x,x_values,y_values)
-print('The interpolating polynomial is:', expand(P))
+    x_approx = np.array(control_points)
+    y_approx = lambdify(x, P)(x_approx)
 
-x_approx = np.array(control_points)
-y_approx = lambdify(x, P)(x_approx)
-
-fig, ax = plt.subplots()
-ax.plot(x_approx, y_approx)
-ax.scatter(x_values, y_values, c = 'r')
-plt.show()
+    fig, ax = plt.subplots()
+    ax.plot(x_approx, y_approx)
+    ax.scatter(x_values, y_values, c = 'r')
+    plt.show()

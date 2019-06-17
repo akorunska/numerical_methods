@@ -1,3 +1,4 @@
+from matplotlib.ticker import FormatStrFormatter
 from sympy import Symbol, simplify, lambdify, expand
 import numpy as np
 import matplotlib.pyplot as plt
@@ -30,25 +31,28 @@ control_points = [
 ]
 
 
-def interpolate_lagrange(x, x_values, y_values):
-    def _basis(j):
-        p = [(x - x_values[m])/(x_values[j] - x_values[m]) for m in range(k) if m != j]
-        return reduce(operator.mul, p)
-    assert len(x_values) != 0 and (len(x_values) == len(y_values)), 'x and y cannot be empty and must have the same length'
-    k = len(x_values)
-    return sum(_basis(j)*y_values[j] for j in range(k))
+def interpolate_lagrange_1(x, w):
+    M = len(x)
+    p = np.poly1d(0.0)
+    for j in range(M):
+        pt = np.poly1d(w[j])
+        for k in range(M):
+            if k == j:
+                continue
+            fac = x[j]-x[k]
+            pt *= np.poly1d([1.0, -x[k]])/fac
+        p += pt
+    return p
 
 
-x = Symbol('x')
-poly = simplify(interpolate_lagrange(x, x_values, y_values))
-print(poly)
-expand(poly)
-
-x1 = np.array(control_points)
-y1 = lambdify(x, poly)(x1)
-
-
-fig, ax = plt.subplots()
-ax.plot(x1, y1)
-ax.scatter(x_values, y_values, c='r')
-plt.show()
+if __name__=="__main__":
+    x = Symbol('x')
+    poly = interpolate_lagrange_1(x_values, y_values)
+    x1 = np.array(control_points)
+    y1 = poly(x1)
+    fig, ax = plt.subplots()
+    ax.plot(x_values, y_values)
+    ax.yaxis.set_major_formatter(FormatStrFormatter('%.5f'))
+    ax.xaxis.set_major_formatter(FormatStrFormatter('%.5f'))
+    ax.scatter(x1, y1, c='r')
+    plt.show()
