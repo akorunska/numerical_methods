@@ -6,18 +6,13 @@ import operator
 
 
 control_points = [
-    8.420, 8.677, 10.250, 11.213,
-    11.288, 11.942, 12.288, 12.463,
-    12.834, 12.913, 14.207, 16.404,
-    16.639, 16.942, 18.683, 18.795,
-    19.071,
+    8.420, 8.677, 10.250, 11.213, 11.288, 11.942, 12.288, 12.463, 12.834,
+    12.913, 14.207, 16.404, 16.639, 16.942, 18.683, 18.795, 19.071,
 ]
+
 
 def f(x):
     return np.log(x**3) + np.cos(x) + x
-
-x_values=np.linspace(6, 20, len(control_points))
-y_values = np.array(list(map(f, x_values)))
 
 
 def first_newtons_formula(x, x_values, y_values):
@@ -35,18 +30,23 @@ def first_newtons_formula(x, x_values, y_values):
         P = P + a
     return P
 
+
 if __name__=="__main__":
     print("f(x) = ln(x^3) + cos(x) + x")
+
+    x_values = np.linspace(6, 20, len(control_points))
+    y_values = np.array(list(map(f, x_values)))
+
     print(y_values)
 
-    x=Symbol('X')
-    P=first_newtons_formula(x, x_values, y_values)
+    x = Symbol('X')
+    P = first_newtons_formula(x, x_values, y_values)
     print('The interpolating polynomial is:', expand(P))
 
-    x_approx = np.array(control_points)
-    y_approx = lambdify(x, P)(x_approx)
+    approximate_values_x = np.array(control_points)
+    approximate_values_y = lambdify(x, P)(approximate_values_x)
 
     fig, ax = plt.subplots()
-    ax.plot(x_approx, y_approx)
+    ax.plot(approximate_values_x, approximate_values_y)
     ax.scatter(x_values, y_values, c = 'r')
     plt.show()
